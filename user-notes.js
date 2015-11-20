@@ -1,12 +1,27 @@
-Tasks = new Mongo.Collection("tasks");
+Router.configure({
+    layoutTemplate: 'main'
+});
 
 Router.route('/', {
-  template: 'home'
+    name: 'home',
+    template: 'home'
 });
 
 Router.route('/create-note',{
-  template: 'create-note'
+  template: 'create-note',
+  name: 'create-note'
 });
+
+Router.route('/public-notes', {
+    name: 'public-notes',
+    template: 'public-notes'
+});
+
+Router.route('/about', {
+    name: 'about',
+    template: 'about'
+});
+
 
 if (Meteor.isClient) {
   // This code only runs on the client
@@ -15,10 +30,6 @@ if (Meteor.isClient) {
   });
 
   Template.body.events({
-
-  });
-
-  Template.task.events({
 
   });
 

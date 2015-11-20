@@ -2,21 +2,45 @@
   <title>User Notes</title>
 </head>
 
+<!-- -->
+
 <body>
 <div class="container">
   <header>
-    <h1>User Notes</h1>
 
     {{> loginButtons}}
 
     {{#if currentUser}}
 
     {{/if}}
+    <!-- using ironrouter for multiple pages
+    As I can't get meteor running right now for some reason,
+    the "home" page displays content from template home.
+    there is no link to the "create-note" page.
+    -->
   </header>
+  {{> main}}
 </div>
 </body>
+<!-- -->
+<template name="main">
+  <h1>User Notes</h1>
+  {{> navigation}} <!-- links to other pages -->
+  {{> yield}} <!-- line where the content appears -->
+</template>
+
+<template name="navigation">
+  <ul>
+    <li><a href="{{pathFor route='home'}}">Home</a></li>
+    <li><a href="{{pathFor route='create-note'}}">Create Note</a></li>
+    <li><a href="{{pathFor route='public-notes'}}">Public Notes</a></li>
+    <li><a href="{{pathFor route='about'}}">About</a></li>
+    <!-- li><a href="{{pathFor route='login'}}">Login</a></li -->
+  </ul>
+</template>
 
 <template name="home">
+  <h2>User Notes</h2>
   <p>
     Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
     A user may create multiple notes with perhaps some limit.
@@ -25,7 +49,7 @@
   <ul>
     <li>special markers that a user could jump to while editing/viewing their text</li>
     <li>double columns for optimal usage of window space</li>
-    <li>resizeable dual view of the same or 2 doumentsin one window</li>
+    <li>resizeable dual view of the same or 2 douments in one window</li>
   </ul>
   <p>Possible features include:</p>
   <ul>
@@ -46,7 +70,18 @@
 </template>
 
 <template name="create-note">
-  <h2>create note</h2>
+  <h2>Create Note</h2>
   <textarea cols="80" rows="8">Paste text here</textarea>
   <input type="submit" value="Submit">
 </template>
+
+<template name="public-notes">
+  <h2>Public Notes</h2>
+
+</template>
+
+<template name="about">
+  <h2>About</h2>
+</template>
+
+<!-- -->
