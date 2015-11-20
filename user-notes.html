@@ -2,33 +2,69 @@
   <title>User Notes</title>
 </head>
 
+<!-- to make notes faster -->
 <!-- -->
-
+<!--
+= general notes
+. how the page looks really needs to be changed from how it currently looks
+. I'll work on editing, saving, and editing a note
+. Maybe you could work on making this look more like pastebin.com or at least better looking
+. Feel free to give me any questions or comments
+. After the above, I suppose next is the user system and the custom navigation of a "note"
+. "note" is in quotes as it might be stored in a different way than a .txt file would, I think.
+. I'm thinking that implementing the note creation functionality would be probably be pretty simple.
+. I'll be tossing notes everywhere.
+= technical notes
+. using some accounts package for unimplemented accounts functionality, I'll look up what I used
+. iron router for separate pages
+-->
 <body>
 <div class="container">
+  <!-- this block is mostly useless and not functioning I think-->
   <header>
-
     {{> loginButtons}}
 
     {{#if currentUser}}
 
     {{/if}}
-    <!-- using ironrouter for multiple pages
-    As I can't get meteor running right now for some reason,
-    the "home" page displays content from template home.
-    there is no link to the "create-note" page.
-    -->
+
   </header>
-  {{> main}}
+  {{> main}} <!-- line containing page content -->
 </div>
 </body>
-<!-- -->
+
+
+<!--
+I use special symbols to denote titles and things
+basically:
+[# > = > - > .]
+# means higher significance
+. means low significance or list element and so on.
+= sometimes means a personal comment? well, a comment comment?
+also:
+[### > ## > #]
+more symbol thingies means more significance
+but I don't use them all the time.
+-->
+
+<!-- ### Meteor Partial Page Templates ### -->
+
+<!--
+## main page template
+displayed on every page
+gives basic navigation and login/account details/functions
+-->
 <template name="main">
   <h1>User Notes</h1>
   {{> navigation}} <!-- links to other pages -->
   {{> yield}} <!-- line where the content appears -->
 </template>
 
+<!--
+## navigation template
+list of pages
+== making this a list isn't a good idea
+-->
 <template name="navigation">
   <ul>
     <li><a href="{{pathFor route='home'}}">Home</a></li>
@@ -39,6 +75,13 @@
   </ul>
 </template>
 
+<!--### Page Content Templates ###-->
+
+<!--
+## home content template
+contains what is displayed on the first page
+currently displays project definition that should be in the about page
+-->
 <template name="home">
   <h2>User Notes</h2>
   <p>
@@ -69,17 +112,29 @@
   </ul>
 </template>
 
+<!--
+## create note content template
+desc:
+-->
 <template name="create-note">
   <h2>Create Note</h2>
   <textarea cols="80" rows="8">Paste text here</textarea>
   <input type="submit" value="Submit">
 </template>
 
+<!--
+## public notes content template
+desc:
+-->
 <template name="public-notes">
   <h2>Public Notes</h2>
 
 </template>
 
+<!--
+## about content template
+desc:
+-->
 <template name="about">
   <h2>About</h2>
 </template>
