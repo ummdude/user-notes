@@ -1,0 +1,52 @@
+<head>
+  <title>User Notes</title>
+</head>
+
+<body>
+<div class="container">
+  <header>
+    <h1>User Notes</h1>
+
+    {{> loginButtons}}
+
+    {{#if currentUser}}
+
+    {{/if}}
+  </header>
+</div>
+</body>
+
+<template name="home">
+  <p>
+    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+    A user may create multiple notes with perhaps some limit.
+  </p>
+  <p>The base initial features include:</p>
+  <ul>
+    <li>special markers that a user could jump to while editing/viewing their text</li>
+    <li>double columns for optimal usage of window space</li>
+    <li>resizeable dual view of the same or 2 doumentsin one window</li>
+  </ul>
+  <p>Possible features include:</p>
+  <ul>
+    <li>tabbed files, like excel has multiple sheets</li>
+    <li>simple spreadsheets with basic functions implemented</li>
+    <li>html, js, cs writing and viewing</li>
+  </ul>
+    <p>Site concepts taken from:</p>
+  <ul>
+    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+  </ul>
+  <p>Todo:</p>
+  <ul>
+    <li>document edit page</li>
+    <li>documents page</li>
+    <li>login page</li>
+  </ul>
+</template>
+
+<template name="create-note">
+  <h2>create note</h2>
+  <textarea cols="80" rows="8">Paste text here</textarea>
+  <input type="submit" value="Submit">
+</template>
