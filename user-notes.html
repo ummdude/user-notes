@@ -118,8 +118,10 @@ desc:
 -->
 <template name="create-note">
   <h2>Create Note</h2>
-  <textarea cols="80" rows="8">Paste text here</textarea>
-  <input type="submit" value="Submit">
+    <form>
+        <textarea name="new-note" class="form-control" placeholder="Paste text here." rows="8"></textarea>
+        <input type="submit" value="Submit" />
+    </form>
 </template>
 
 <!--
