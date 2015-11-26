@@ -2,11 +2,11 @@
   <title>User Notes</title>
 </head>
 
-<!-- to make notes faster -->
+<!-- following comment line is to make notes faster -->
 <!-- -->
 <!--
 = general notes
-. how the page looks really needs to be changed from how it currently looks
+. page layout is just from that todo meteor tutorial
 . I'll work on editing, saving, and editing a note
 . Maybe you could work on making this look more like pastebin.com or at least better looking
 . Feel free to give me any questions or comments
@@ -19,16 +19,15 @@
 . using some accounts package for unimplemented accounts functionality, I'll look up what I used
 . iron router for separate pages
 -->
+
+<!-- this block will be built of templates mostly -->
 <body>
   <div class="container">
     <!-- this block is mostly useless and not functioning I think-->
     <header>
       {{> loginButtons}}
-
-      {{#if currentUser}}
-
+      {{#if currentUser}} <!-- current user line block-->
       {{/if}}
-
     </header>
     {{> main}} <!-- line containing page content -->
   </div>
@@ -46,6 +45,10 @@ also:
 [### > ## > #]
 more symbol thingies means more significance
 but I don't use them all the time.
+
+The concept for markers is for the client to catch the string "#### marker name ####"
+and have the client? scroll down the page as much as possible (in the case the marker is at the bottom of the note text)
+to show the location that marker is located.
 -->
 
 <!-- ### Meteor Partial Page Templates ### -->
@@ -67,9 +70,9 @@ list of pages
 == making this a list isn't a good idea
 -->
 <template name="navigation">
-  <a href="{{pathFor route='home'}}">Home</a><p> | </p>
-  <a href="{{pathFor route='create-note'}}">Create Note</a><p> | </p>
-  <a href="{{pathFor route='public-notes'}}">Public Notes </a><p> | </p>
+  <a href="{{pathFor route='home'}}">Home</a>
+  <a href="{{pathFor route='create-note'}}">Create Note</a>
+  <a href="{{pathFor route='public-notes'}}">Public Notes</a>
   <a href="{{pathFor route='about'}}">About</a>
     <!-- li><a href="{{pathFor route='login'}}">Login</a></li -->
 </template>
@@ -80,6 +83,7 @@ list of pages
 ## home content template
 contains what is displayed on the first page
 currently displays project definition that should be in the about page
+towards the end, may become the "create new note" page
 -->
 <template name="home">
   <h2>User Notes</h2>
@@ -114,7 +118,7 @@ currently displays project definition that should be in the about page
 <!--
 ## create note content template
 desc:
-look at creating and editing a page at wikipedia
+looked at creating and editing a page at wikipedia
 at creating and editing a note at pastebin
 -->
 <template name="create-note">
@@ -122,22 +126,24 @@ at creating and editing a note at pastebin
   <!-- text box in own template?-->
   <!-- no custom formatting other than customization of project -->
   <!-- basic textbox like pastebin-->
-  <!-- "marker" feature to work on text in textbox -->
+  <!-- "marker" feature to work on text in textbox aa-->
 
+  <!-- on submit, by enter? or by click of submit button,
+    meteor listens for the event on this template to take the form input and
+    create a database object/element/thing from that input.
+  -->
   <form class="new-note">
     <input type="text" name="notetitle" placeholder="Enter Title" />
     <textarea name="notetext" cols="80" rows="40">Enter your text here.</textarea>
     <input id="save-note" type="submit" value="Submit" title="Save your note">
   </form>
 
-  <textarea cols="80" rows="40">Enter your text here.</textarea>
-  <input id="save-note" type="submit" value="Submit" title="Save your note">
-
 </template>
 
 <!--
 ## public notes content template
-desc:
+desc: displays the titles of notes that the public notes database stores
+  clicking on a title takes you to a page that displays the note text of the note.
 -->
 <template name="public-notes">
   <h2>Public Notes</h2>
@@ -150,10 +156,11 @@ desc:
 
 <!--
 ## about content template
-desc:
+desc: where we are to talk about how we used the things we used and project details
 -->
 <template name="about">
   <h2>About</h2>
 </template>
 
+<!-- following comment line is to make notes faster -->
 <!-- -->

@@ -53,8 +53,10 @@ if (Meteor.isClient) {
 
   });
 
+  // catches events on the create-note template
   Template.create-note.events({
-    // function to create new note
+
+    // function to create new note from form on submittal
     'submit form': function (event) {
       // Prevent default browser form submit
       event.preventDefault();
@@ -65,6 +67,7 @@ if (Meteor.isClient) {
       var notetext = event.target.notetext.value;
       console.log(notetitle);
       console.log(notetext);
+
       // Insert a task into the collection
       Publicnotes.insert({
         notetitle: notetitle,
@@ -79,6 +82,8 @@ if (Meteor.isClient) {
   Template.view-note.events({
 
   });
+
+  // this isn't used currently
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
