@@ -1,5 +1,9 @@
 Template.public-notes.helpers({
 
-    notes: Notes.find({})
+    notes: [
+        { note: "1" },
+        { note: "2" },
+        { note: "3" }
+    ]
 
 });
