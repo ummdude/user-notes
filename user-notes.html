@@ -1,5 +1,5 @@
 <head>
-  <title>User Notes</title>
+    <title>User Notes</title>
 </head>
 
 <!-- to make notes faster -->
@@ -20,16 +20,16 @@
 -->
 <body>
 <div class="container">
-  <!-- this block is mostly useless and not functioning I think-->
-  <header>
-    {{> loginButtons}}
+    <!-- this block is mostly useless and not functioning I think-->
+    <header>
+        {{> loginButtons}}
 
-    {{#if currentUser}}
+        {{#if currentUser}}
 
-    {{/if}}
+        {{/if}}
 
-  </header>
-  {{> main}} <!-- line containing page content -->
+    </header>
+    {{> main}} <!-- line containing page content -->
 </div>
 </body>
 
@@ -55,9 +55,9 @@ displayed on every page
 gives basic navigation and login/account details/functions
 -->
 <template name="main">
-  <h1>User Notes</h1>
-  {{> navigation}} <!-- links to other pages -->
-  {{> yield}} <!-- line where the content appears -->
+    <h1>User Notes</h1>
+    {{> navigation}} <!-- links to other pages -->
+    {{> yield}} <!-- line where the content appears -->
 </template>
 
 <!--
@@ -66,13 +66,13 @@ list of pages
 == making this a list isn't a good idea
 -->
 <template name="navigation">
-  <ul>
-    <li><a href="{{pathFor route='home'}}">Home</a></li>
-    <li><a href="{{pathFor route='create-note'}}">Create Note</a></li>
-    <li><a href="{{pathFor route='public-notes'}}">Public Notes</a></li>
-    <li><a href="{{pathFor route='about'}}">About</a></li>
-    <!-- li><a href="{{pathFor route='login'}}">Login</a></li -->
-  </ul>
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        <li><a href="{{pathFor route='create-note'}}">Create Note</a></li>
+        <li><a href="{{pathFor route='public-notes'}}">Public Notes</a></li>
+        <li><a href="{{pathFor route='about'}}">About</a></li>
+        <!-- li><a href="{{pathFor route='login'}}">Login</a></li -->
+    </ul>
 </template>
 
 <!--### Page Content Templates ###-->
@@ -83,33 +83,33 @@ contains what is displayed on the first page
 currently displays project definition that should be in the about page
 -->
 <template name="home">
-  <h2>User Notes</h2>
-  <p>
-    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-    A user may create multiple notes with perhaps some limit.
-  </p>
-  <p>The base initial features include:</p>
-  <ul>
-    <li>special markers that a user could jump to while editing/viewing their text</li>
-    <li>double columns for optimal usage of window space</li>
-    <li>resizeable dual view of the same or 2 douments in one window</li>
-  </ul>
-  <p>Possible features include:</p>
-  <ul>
-    <li>tabbed files, like excel has multiple sheets</li>
-    <li>simple spreadsheets with basic functions implemented</li>
-    <li>html, js, cs writing and viewing</li>
-  </ul>
+    <h2>User Notes</h2>
+    <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+    </p>
+    <p>The base initial features include:</p>
+    <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 douments in one window</li>
+    </ul>
+    <p>Possible features include:</p>
+    <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+    </ul>
     <p>Site concepts taken from:</p>
-  <ul>
-    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-  </ul>
-  <p>Todo:</p>
-  <ul>
-    <li>document edit page</li>
-    <li>documents page</li>
-    <li>login page</li>
-  </ul>
+    <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+    </ul>
+    <p>Todo:</p>
+    <ul>
+        <li>document edit page</li>
+        <li>documents page</li>
+        <li>login page</li>
+    </ul>
 </template>
 
 <!--
@@ -117,7 +117,7 @@ currently displays project definition that should be in the about page
 desc:
 -->
 <template name="create-note">
-  <h2>Create Note</h2>
+    <h2>Create Note</h2>
     <form class="new-note">
         <textarea name="note" class="form-control" placeholder="Paste text here." rows="8"></textarea>
         <input type="submit" value="Submit" />
@@ -129,7 +129,11 @@ desc:
 desc:
 -->
 <template name="public-notes">
-  <h2>Public Notes</h2>
+    <h2>Public Notes</h2>
+
+    {{#each notes}}
+        {{> note}}
+    {{/each}}
 
 </template>
 
@@ -138,7 +142,11 @@ desc:
 desc:
 -->
 <template name="about">
-  <h2>About</h2>
+    <h2>About</h2>
 </template>
 
 <!-- -->
+
+<template name="note">
+    <code>{{note}}</code>
+</template>
