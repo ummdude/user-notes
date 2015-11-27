@@ -38,7 +38,7 @@ Router.route('/create-note',{
 
 Router.route('/public-notes', {
     name: 'public-notes',
-    template: 'public-notes'
+    template: 'publicNotes'
 });
 
 Router.route('/about', {

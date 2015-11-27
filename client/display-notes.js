@@ -1,7 +1,7 @@
-Template.public-notes.helpers({
+Template.publicNotes.helpers({
 
-    notes: [
-        {note: "1"},
+    publicNotes: [
+        {title:"one", note: "1"},
         {note: "2"},
         {note: "3"}
     ]
