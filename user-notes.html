@@ -25,7 +25,6 @@
 <div class="container">
     <!-- this block is mostly useless and not functioning I think-->
     <header>
-        {{> loginButtons}}
         {{#if currentUser}} <!-- current user line block-->
         {{/if}}
     </header>
@@ -61,7 +60,11 @@ gives basic navigation and login/account details/functions
 -->
 <template name="main">
     {{> navigation}} <!-- navigation to other pages -->
-    {{> yield}} <!-- line where the content appears -->
+    <div class="container-fluid">
+        <div class="col-sm-12">
+            {{> yield}} <!-- line where the content appears -->
+        </div>
+    </div>
 </template>
 
 <!--### Page Content Templates ###-->
@@ -107,7 +110,7 @@ towards the end, may become the "create new note" page
 desc: where we are to talk about how we used the things we used and project details
 -->
 <template name="about">
-    <h2>About</h2>
+    <h2>About User Notes</h2>
 </template>
 
 <!-- following comment line is to make notes faster -->

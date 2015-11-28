@@ -16,9 +16,14 @@ at creating and editing a note at pastebin
       create a database object/element/thing from that input.
     -->
     <form class="new-note">
-        <input type="text" name="notetitle" placeholder="Enter note title." />
-        <textarea name="notetext" placeholder="Enter note text." cols="80" rows="40"></textarea>
-        <input id="save-note" type="submit" value="Submit" title="Save your note">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="notetitle" class="form-control input-lg" placeholder="Enter note title." />
+        </div>
+        <div class="form-group">
+            <label>Text</label>
+            <textarea name="notetext" class="form-control" placeholder="Enter note text." rows="40"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
-
 </template>
