@@ -1,0 +1,16 @@
+<!--
+## public notes content template
+desc: displays the titles of notes that the public notes database stores
+  clicking on a title takes you to a page that displays the note text of the note.
+-->
+<template name="publicNotes">
+    <h2>Public Notes</h2>
+    <div class="notes-list">
+        <ul class="list-unstyled">
+            {{#each publicNotes}}
+                <li>{{title}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+<!-- recognize "{pg split]" string as location to display text after string in 2nd column -->

@@ -1,9 +1,12 @@
 Template.publicNotes.helpers({
 
-    publicNotes: [
-        {title: "one", note: "1"},
-        {title: "two", note: "2"},
-        {title: "three", note: "3"}
-    ]
+    publicNotes: Notes.find({})
 
+    /**
+     [
+     {title: "one", text: "1"},
+     {title: "two", text: "2"},
+     {title: "three", text: "3"}
+     ]
+     */
 });

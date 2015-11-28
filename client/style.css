@@ -2,6 +2,8 @@
 
 /* how the page looks really needs to be changed from how it currently looks */
 
+/*
+
 body {
   font-family: sans-serif;
   background-color: #315481;
@@ -66,15 +68,11 @@ form {
   outline: 0;
 }
 
-/*
-
 ul {
   margin: 0;
   padding: 0;
   background: white;
 }
-
-*/
 
 .delete {
   float: right;
@@ -85,14 +83,16 @@ ul {
   position: relative;
 }
 
-/*
+*/
 
-li {
+.notes-list li {
   position: relative;
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
 }
+
+/*
 
 li .text {
   margin-left: 10px;
@@ -111,8 +111,6 @@ li.private {
   border-color: #ddd;
 }
 
-*/
-
 header .hide-completed {
   float: right;
 }
@@ -120,8 +118,6 @@ header .hide-completed {
 .toggle-private {
   margin-left: 5px;
 }
-
-/*
 
 @media (max-width: 600px) {
   li {
