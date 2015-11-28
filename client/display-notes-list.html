@@ -6,11 +6,11 @@ desc: displays the titles of notes that the public notes database stores
 <template name="publicNotes">
     <h2>Public Notes</h2>
     <div class="notes-list">
-        <ul class="list-unstyled">
+        <div class="list-group">
             {{#each publicNotes}}
-                <li>{{title}}</li>
+                <a href="#" class="list-group-item">{{title}}</a>
             {{/each}}
-        </ul>
+        </div>
     </div>
 </template>
 <!-- recognize "{pg split]" string as location to display text after string in 2nd column -->

@@ -1,5 +1,7 @@
 <head>
     <title>User Notes</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 </head>
 
 <!-- following comment line is to make notes faster -->
@@ -29,7 +31,6 @@
         {{/if}}
     </header>
     {{> main}} <!-- line containing page content -->
-
 </div>
 </body>
 
@@ -60,11 +61,13 @@ gives basic navigation and login/account details/functions
 -->
 <template name="main">
     {{> navigation}} <!-- navigation to other pages -->
-    <div class="container-fluid">
-        <div class="col-sm-12">
-            {{> yield}} <!-- line where the content appears -->
+    <main>
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                {{> yield}} <!-- line where the content appears -->
+            </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <!--### Page Content Templates ###-->
@@ -103,14 +106,6 @@ towards the end, may become the "create new note" page
         <li>documents page</li>
         <li>login page</li>
     </ul>
-</template>
-
-<!--
-## about content template
-desc: where we are to talk about how we used the things we used and project details
--->
-<template name="about">
-    <h2>About User Notes</h2>
 </template>
 
 <!-- following comment line is to make notes faster -->
