@@ -1,0 +1,24 @@
+<!--
+## create note content template
+desc:
+looked at creating and editing a page at wikipedia
+at creating and editing a note at pastebin
+-->
+<template name="createNote">
+    <h2>Create Note</h2>
+    <!-- text box in own template?-->
+    <!-- no custom formatting other than customization of project -->
+    <!-- basic textbox like pastebin-->
+    <!-- "marker" feature to work on text in textbox aa-->
+
+    <!-- on submit, by enter? or by click of submit button,
+      meteor listens for the event on this template to take the form input and
+      create a database object/element/thing from that input.
+    -->
+    <form class="new-note">
+        <input type="text" name="notetitle" placeholder="Enter note title." />
+        <textarea name="notetext" placeholder="Enter note text." cols="80" rows="40"></textarea>
+        <input id="save-note" type="submit" value="Submit" title="Save your note">
+    </form>
+
+</template>

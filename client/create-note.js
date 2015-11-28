@@ -1,20 +1,25 @@
-Template.create-notes.events({
+// catches events on the create-note template
+Template.createNote.events({
 
-    "submit form, click h2": function(event) {
-
+    // function to create new note from form on submittal
+    'submit form': function (event) {
+        // Prevent default browser form submit
         event.preventDefault();
 
-        var note = $('#note').valueOf();
+        // Get value from form element
+        // can't use "-"
+        var notetitle = event.target.notetitle.value;
+        var notetext = event.target.notetext.value;
+        console.log(notetitle);
+        console.log(notetext);
 
+        // Insert a task into the collection
         Notes.insert({
-            note: note
+            title: notetitle,
+            text: notetext,
         });
-
-        event.target.text.value = "";
-
-        $("create h2").text("NEW");
-
+        // Clear form
+        event.target.notetitle.value = "";
+        event.target.notetext.value = "";
     }
-
-
 });

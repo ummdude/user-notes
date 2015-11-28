@@ -64,37 +64,6 @@ gives basic navigation and login/account details/functions
     {{> yield}} <!-- line where the content appears -->
 </template>
 
-<!--
-## navigation template
-list of pages
-== making this a list isn't a good idea
--->
-<template name="navigation">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">User Notes</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    {{#each pages}}
-                        <li>{{> navLink}}</li>
-                    {{/each}}
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="{{pathFor route='login'}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</template>
-
 <!--### Page Content Templates ###-->
 
 <!--
@@ -134,31 +103,6 @@ towards the end, may become the "create new note" page
 </template>
 
 <!--
-## create note content template
-desc:
-looked at creating and editing a page at wikipedia
-at creating and editing a note at pastebin
--->
-<template name="create-note">
-    <h2>Create Note</h2>
-    <!-- text box in own template?-->
-    <!-- no custom formatting other than customization of project -->
-    <!-- basic textbox like pastebin-->
-    <!-- "marker" feature to work on text in textbox aa-->
-
-    <!-- on submit, by enter? or by click of submit button,
-      meteor listens for the event on this template to take the form input and
-      create a database object/element/thing from that input.
-    -->
-    <form class="new-note">
-        <input type="text" name="notetitle" placeholder="Enter Title" />
-        <textarea name="notetext" cols="80" rows="40">Enter your text here.</textarea>
-        <input id="save-note" type="submit" value="Submit" title="Save your note">
-    </form>
-
-</template>
-
-<!--
 ## public notes content template
 desc: displays the titles of notes that the public notes database stores
   clicking on a title takes you to a page that displays the note text of the note.
@@ -166,7 +110,7 @@ desc: displays the titles of notes that the public notes database stores
 <template name="publicNotes">
     <h2>Public Notes</h2>
     {{#each publicNotes}}
-        <li>{{title}} Test</li>
+        <li>{{title}}</li>
     {{/each}}
 </template>
 
