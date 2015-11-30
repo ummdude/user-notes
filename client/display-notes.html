@@ -9,13 +9,13 @@ desc: displays the titles of notes that the public notes database stores
             <h2>Public Notes</h2>
             <div class="list-group">
                 {{#each publicNotes}}
-                    <a href="#" class="list-group-item">{{title}}</a>
+                    <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
                 {{/each}}
             </div>
         </div>
         <div class="col-md-6">
-            <h2 class="displayTitle">Title</h2>
-            <code class="displayNote">Note</code>
+            <h2 id="displayTitle">Title</h2>
+            <code id="displayNote">Note</code>
         </div>
     </div>
 </template>

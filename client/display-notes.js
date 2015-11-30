@@ -3,7 +3,17 @@ Template.publicNotes.helpers({
 });
 
 Template.publicNotes.events({
-   'click a': function(event) {
-       event.preventDefault();
-   }
+    'click a': function(event) {
+
+        event.preventDefault();
+
+        var search = event.target.name;
+
+        var searchResult = Notes.findOne(search);
+
+        console.log(searchResult);
+
+        $("#displayTitle").text(searchResult.title);
+        $("#displayNote").text(searchResult.text);
+    }
 });
