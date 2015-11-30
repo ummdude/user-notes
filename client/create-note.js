@@ -8,7 +8,7 @@ Template.createNote.events({
 
         // Get value from form element
         // can't use "-"
-        var notetitle = event.target.notetitle.value;
+        var notetitle = (event.target.notetitle.value == "") ? "Untitled" : event.target.notetitle.value;
         var notetext = event.target.notetext.value;
         console.log(notetitle);
         console.log(notetext);
@@ -17,6 +17,8 @@ Template.createNote.events({
         Notes.insert({
             title: notetitle,
             text: notetext,
+            createdAt: new Date(),
+            owner: Meteor.userId()
         });
         // Clear form
         event.target.notetitle.value = "";

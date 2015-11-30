@@ -8,12 +8,10 @@ Template.publicNotes.events({
         event.preventDefault();
 
         var search = event.target.name;
-
         var searchResult = Notes.findOne(search);
-
-        console.log(searchResult);
 
         $("#displayTitle").text(searchResult.title);
         $("#displayNote").text(searchResult.text);
+
     }
 });
