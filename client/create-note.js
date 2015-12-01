@@ -7,7 +7,6 @@ Template.createNote.events({
         event.preventDefault();
 
         // Get value from form element
-        // can't use "-"
         var notetitle = (event.target.notetitle.value == "") ? "Untitled" : event.target.notetitle.value;
         var notetext = event.target.notetext.value;
         console.log(notetitle);

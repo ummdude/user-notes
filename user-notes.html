@@ -7,108 +7,130 @@
 <!-- following comment line is to make notes faster -->
 <!-- -->
 <!--
-= general notes
-. page layout is just from that todo meteor tutorial
-. I'll work on editing, saving, and editing a note
-. Maybe you could work on making this look more like pastebin.com or at least better looking
-. Feel free to give me any questions or comments
-. After the above, I suppose next is the user system and the custom navigation of a "note"
-. "note" is in quotes as it might be stored in a different way than a .txt file would, I think.
-. I'm thinking that implementing the note creation functionality would be probably be pretty simple.
-. I'll be tossing notes everywhere.
-= technical notes
-. while pushing, I get 6 errors that I assume that I can ignore, there is probably a plugin I should get.
-. using some accounts package for unimplemented accounts functionality, I'll look up what I used
-. iron router for separate pages
+    = goals =
+  note creation
+  note reading
+  user accounts
+  note jump markers (reading)
+  note jump markers (writing)
+  note editing
+
+    = who did what =
+  layout: grant
+  creating note: grant
+  basic user accounts: grant
+  note access: grant
+
+  initial page creation: erick
+  concept: erick
+
+    = progress =
+  user accounts don't have much usage currently
+
+    = to do =
+  how to create pages for each note to display the note
+  how to link this page to the note title in the public notes list
+
+    = general notes =
+  concept: recognize "[pg split]" string as location to display text below this string in 2nd column
+
+    = technical notes =
+  - need to create a route for every page in the js file and update navigation page.
+  - using iron router to implement separate pages
 -->
 
-<!-- this block will be built of templates mostly -->
+<!-- ## meteor notes ##
+  - navigation js needs to be updated with new pages.
+  - meteor dislikes '-' characters or dashes in template names, maybe.
+-->
+
+<!-- ## encountered problems ##
+  - was having errors in the webpage console with having the '-' character in template names.
+-->
+
+<!-- the body block will be built of templates -->
 <body>
-<div class="container">
-    <!-- this block is mostly useless and not functioning I think-->
-    <header>
-        {{#if currentUser}} <!-- current user line block-->
-        {{/if}}
-    </header>
+  <div class="container">
     {{> main}} <!-- line containing page content -->
-</div>
+  </div>
 </body>
 
-
 <!--
-I use special symbols to denote titles and things
-basically:
-[# > = > - > .]
-# means higher significance
-. means low significance or list element and so on.
-= sometimes means a personal comment? well, a comment comment?
-also:
-[### > ## > #]
-more symbol thingies means more significance
-but I don't use them all the time.
+  I use special symbols to denote titles and things
+  basically:
+    [# > = > - > .]
+  # means higher significance
+  . means low significance or list element and so on.
+  = sometimes means a personal comment? well, a comment comment?
+  also:
+    [### > ## > #]
+  more symbol thingies means more significance
+  but I don't use them all the time.
 
-The concept for markers is for the client to catch the string "#### marker name ####"
-and have the client? scroll down the page as much as possible (in the case the marker is at the bottom of the note text)
-to show the location that marker is located.
+  The concept for markers is for the client to catch the string "#### marker name ####"
+  and have the client? scroll down the page as much as possible (in the case the marker is at the bottom of the note text)
+  to show the location that marker is located.
 -->
 
-<!-- ### Meteor Partial Page Templates ### -->
+<!--
+  ## template template
+  desc: template for a page
+-->
+<template name="template">
+  <h2>title</h2>
+</template>
 
 <!--
-## main page template
-displayed on every page
-gives basic navigation and login/account details/functions
+  ## main page template
+  desc: displayed on every page
+    gives basic navigation and login/account details/functions
 -->
 <template name="main">
-    {{> navigation}} <!-- navigation to other pages -->
-    <main>
-        <div class="container-fluid">
-            {{> yield}} <!-- line where the content appears -->
-        </div>
-    </main>
+  {{> navigation}} <!-- navigation to other pages -->
+  <main>
+    <div class="container-fluid">
+      {{> yield}} <!-- line where the content appears -->
+    </div>
+  </main>
 </template>
-
-<!--### Page Content Templates ###-->
 
 <!--
-## home content template
-contains what is displayed on the first page
-currently displays project definition that should be in the about page
-towards the end, may become the "create new note" page
+  ## home content template
+  contains what is displayed on the first page
+  currently displays project definition that should be in the about page
+  towards the end, may become the "create new note" page
 -->
-<template name="home">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>User Notes</h2>
-            <p>
-                Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-                A user may create multiple notes with perhaps some limit.
-            </p>
-            <p>The base initial features include:</p>
-            <ul>
-                <li>special markers that a user could jump to while editing/viewing their text</li>
-                <li>double columns for optimal usage of window space</li>
-                <li>resizeable dual view of the same or 2 douments in one window</li>
-            </ul>
-            <p>Possible features include:</p>
-            <ul>
-                <li>tabbed files, like excel has multiple sheets</li>
-                <li>simple spreadsheets with basic functions implemented</li>
-                <li>html, js, cs writing and viewing</li>
-            </ul>
-            <p>Site concepts taken from:</p>
-            <ul>
-                <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-            </ul>
-            <p>Todo:</p>
-            <ul>
-                <li>document edit page</li>
-                <li>documents page</li>
-                <li>login page</li>
-            </ul>
-        </div>
-    </div>
-</template>
-
-<!-- following comment line is to make notes faster -->
 <!-- -->
+<template name="home">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 douments in one window</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>document edit page</li>
+        <li>documents page</li>
+        <li>login page</li>
+      </ul>
+    </div>
+  </div>
+</template>

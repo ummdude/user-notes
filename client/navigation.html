@@ -1,28 +1,34 @@
+<!--
+  ## navigation template
+  desc: displayed on every page
+    gives basic navigation and login/account details/functions
+    - provides user specific features on login
+-->
 <template name="navigation">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">User Notes</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    {{#each pages}}
-                        <li>{{> navLink}}</li>
-                    {{/each}}
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><span class="glyphicon glyphicon-log-in"></span> {{> loginButtons align="right"}}</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">User Notes</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          {{#each pages}}
+              <li>{{> navLink}}</li>
+          {{/each}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><span class="glyphicon glyphicon-log-in"></span> {{> loginButtons align="right"}}</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <template name="navLink">
-    <a href="{{pathFor route=(route)}}">{{label}}</a>
+  <a href="{{pathFor route=(route)}}">{{label}}</a>
 </template>
