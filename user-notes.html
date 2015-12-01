@@ -37,11 +37,17 @@
   confirmation a note is created
 
     = general notes =
-  .for the complexity of the project, I'd say we need to have one more point of custom functionality
-    after the the things listed in the to do list.
-  .test and display a large note of multiple lines(100-200)
-  .define the possible limit of text of a note
-  concept: recognize "[pg split]" string as location to display text below this string in 2nd column
+  . for the complexity of the project, I'd say we need to have one more point of custom functionality
+      after the the things listed in the to do list.
+  . test and display a large note of multiple lines(100-200)
+  . define the possible limit of text of a note
+  . concept: recognize "[pg split]" string as location to display text below this string in 2nd column
+  . name anchor to be in <a> elements, id anchor in any element
+  ############## id anchor works ###########
+  ##== internal linking concept:
+  == using jquery, transform matching text to an element with unique name in its "id" tag
+  == initially, place links to internal links at the top of the display-notes page
+  == 
 
     = technical notes =
 -->
@@ -57,7 +63,7 @@
 
 <!-- the body block will be built of templates -->
 <body>
-  <div class="container">
+  <div class="container" id="bodyblock">
     {{> main}} <!-- line containing page content -->
   </div>
 </body>
@@ -118,6 +124,7 @@
   <div class="row">
     <div class="col-md-12">
       <h2>User Notes</h2>
+      <!-- internal linking test-->
       <a href="#notes1">notes 1</a> <a href="#notes2">notes 2</a><br>
       <p>
         Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
@@ -148,9 +155,9 @@
     </div>
   </div>
 
-  <div name="notes1" class="row">
+  <div class="row">
     <div class="col-md-12">
-      <h2>User Notes</h2>
+      <h2 id="notes1">User Notes</h2>
       <p>
         Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
         A user may create multiple notes with perhaps some limit.
@@ -180,9 +187,9 @@
     </div>
   </div>
 
-  <div name="notes2" class="row">
+  <div class="row">
     <div class="col-md-12">
-      <h2>User Notes</h2>
+      <h2 id="notes2">User Notes</h2>
       <p>
         Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
         A user may create multiple notes with perhaps some limit.
@@ -209,6 +216,7 @@
         <li>documents page</li>
         <li>login page</li>
       </ul>
+      <a href="#bodyblock">body</a>
     </div>
   </div>
 </template>
