@@ -4,6 +4,7 @@ Meteor.startup(function(){
             title: "Test Note",
             text: "This is a test note.",
             createdAt: new Date(),
+            owner: null
         });
     }
 })
