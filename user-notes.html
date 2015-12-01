@@ -17,30 +17,37 @@
 
     = who did what =
   layout: grant
-  creating note: grant
+  note creation function: grant
   basic user accounts: grant
-  note access: grant
+  note accessibility: grant
+  most of the complex code: grant
 
   initial page creation: erick
   concept: erick
+  very very very very very very little code: erick
 
     = progress =
   user accounts don't have much usage currently
+  a note takes the id of the user as its author
 
     = to do =
-  how to create pages for each note to display the note
-  how to link this page to the note title in the public notes list
+  note jump markers (reading)
+  note jump markers (writing)
+  note editing
+  confirmation a note is created
 
     = general notes =
+  for the complexity of the project, I'd say we need to have one more point of custom functionality
+    after the the things listed in the to do list.
+  test and display a large note of multiple lines(100-200)
+  define the possible limit of text of a note
   concept: recognize "[pg split]" string as location to display text below this string in 2nd column
 
     = technical notes =
-  - need to create a route for every page in the js file and update navigation page.
-  - using iron router to implement separate pages
 -->
 
 <!-- ## meteor notes ##
-  - navigation js needs to be updated with new pages.
+  - need to create a route for every page in the js file and update navigation page.
   - meteor dislikes '-' characters or dashes in template names, maybe.
 -->
 
@@ -76,7 +83,7 @@
   ## template template
   desc: template for a page
 -->
-<template name="template">
+<template name="templatetemplate">
   <h2>title</h2>
 </template>
 
@@ -86,7 +93,7 @@
     gives basic navigation and login/account details/functions
 -->
 <template name="main">
-  {{> navigation}} <!-- navigation to other pages -->
+  {{> navigation}} <!-- navigation bar -->
   <main>
     <div class="container-fluid">
       {{> yield}} <!-- line where the content appears -->
@@ -96,7 +103,7 @@
 
 <!--
   ## home content template
-  contains what is displayed on the first page
+  desc: contains what is displayed on the first page
   currently displays project definition that should be in the about page
   towards the end, may become the "create new note" page
 -->

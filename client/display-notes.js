@@ -15,3 +15,20 @@ Template.publicNotes.events({
 
     }
 });
+
+/*
+
+Template.publicNotes.helpers({
+  // returns the notes in the public note database
+  'returnPublicNotes': function(){
+    return Publicnotes.find();
+  }
+});
+
+Template.viewNote.helpers({
+  // returns the test note
+  'returnTestNote': function(){
+    return Publicnotes.find({ noteTitle: "texttt" });
+  }
+});
+*/
