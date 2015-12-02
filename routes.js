@@ -17,6 +17,11 @@ Router.route('/public-notes', {
     template: 'publicNotes'
 });
 
+Router.route('/private-notes', {
+    name: 'private-notes',
+    template: 'privateNotes'
+});
+
 Router.route('/about', {
     name: 'about',
     template: 'about'

@@ -5,7 +5,11 @@
   this function returns the elements in the Notes collection.
  */
 Template.publicNotes.helpers({
-    publicNotes: Notes.find({})
+    publicNotes: Notes.find({privacy: "public"})
+});
+
+Template.privateNotes.helpers({
+    publicNotes: Notes.find({privacy: "private", owner: Meteor.userId()})
 });
 
 /*
@@ -27,10 +31,37 @@ Template.publicNotes.events({
 
         event.preventDefault();
 
+        // retrieve note document based on id
         var search = event.target.name;
         var searchResult = Notes.findOne(search);
+        var owner = (searchResult.owner == null) ? "Anonymous" : Meteor.users.findOne(searchResult.owner).username;
 
+        // display note information (probably needs to be changed)
         $("#displayTitle").text(searchResult.title);
+        $("#displayOwner").text(owner);
+        $("#displayDate").text(searchResult.createdAt);
+        $("#displayNote").text(searchResult.text);
+
+    }
+});
+
+Template.privateNotes.events({
+    /*
+     this function displays the note that is clicked on on the same page.
+     */
+    'click a': function(event) {
+
+        event.preventDefault();
+
+        // retrieve note document based on id
+        var search = event.target.name;
+        var searchResult = Notes.findOne(search);
+        var owner = (searchResult.owner == null) ? "Anonymous" : Meteor.users.findOne(searchResult.owner).username;
+
+        // display note information (probably needs to be changed)
+        $("#displayTitle").text(searchResult.title);
+        $("#displayOwner").text(owner);
+        $("#displayDate").text(searchResult.createdAt);
         $("#displayNote").text(searchResult.text);
 
     }

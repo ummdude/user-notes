@@ -19,8 +19,8 @@
 -->
 
 <template name="publicNotes">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row displayNotes">
+        <div class="col-md-6 notesList">
             <h2>Public Notes</h2>
             <div class="list-group">
                 {{#each publicNotes}}
@@ -28,8 +28,31 @@
                 {{/each}}
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
             <h2 id="displayTitle">Title</h2>
+            <p><small class="text-uppercase">
+                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
+            </small></p>
+            <pre id="displayNote">Note</pre>
+        </div>
+    </div>
+</template>
+
+<template name="privateNotes">
+    <div class="row displayNotes">
+        <div class="col-md-6 notesList">
+            <h2>Private Notes</h2>
+            <div class="list-group">
+                {{#each publicNotes}}
+                    <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+                {{/each}}
+            </div>
+        </div>
+        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+            <h2 id="displayTitle">Title</h2>
+            <p><small class="text-uppercase">
+                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
+            </small></p>
             <pre id="displayNote">Note</pre>
         </div>
     </div>
