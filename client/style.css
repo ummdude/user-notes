@@ -13,3 +13,7 @@ main h1, main h2 {
 main a {
     color: green;
 }
+
+form.register label, form.login label {
+    font-size: 18px;
+}

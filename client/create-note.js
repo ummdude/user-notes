@@ -3,6 +3,7 @@ Template.createNote.events({
 
     // function to create new note from form on submittal
     'submit form': function (event) {
+
         // Prevent default browser form submit
         event.preventDefault();
 
@@ -24,5 +25,7 @@ Template.createNote.events({
         event.target.notetitle.value = "";
         event.target.notetext.value = "";
         event.target.privacy.value = "public";
+
     }
+
 });
