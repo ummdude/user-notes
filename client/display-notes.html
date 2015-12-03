@@ -10,14 +10,23 @@
 <!-- -->
 <!-- key words for marker jumps: internal linking, anchor text-->
 <!--
-  notes-list notes:
-  newer notes appear at the bottom
-  there are many notes with no titles initially made
-  perhaps we can separate the notes into pages
-  so that older notes appear in older pages,
-  and newer notes appear in newer pages.
--->
-
+  ## notes-list notes:
+    . newer notes appear at the bottom
+    . there are many notes with no titles initially made
+    . perhaps we can separate the notes into pages
+      so that older notes appear in older pages,
+      and newer notes appear in newer pages.
+    . note deletion function
+  -->
+<!--
+  ## note attributes
+  Notes.insert({
+    title: notetitle,
+    text: notetext,
+    createdAt: new Date(),
+    owner: Meteor.userId()
+  });
+  -->
 <template name="publicNotes">
     <div class="row">
         <div class="col-md-6">
