@@ -10,7 +10,7 @@ Template.createNote.events({
         // Get values from form elements
         var notetitle = (event.target.notetitle.value == "") ? "Untitled" : event.target.notetitle.value;
         var notetext = event.target.notetext.value;
-        var noteprivacy = event.target.privacy.value;
+        var noteprivacy = (Meteor.user() == null) ? "public" : event.target.privacy.value;
 
         // Insert a task into the collection
         Notes.insert({
