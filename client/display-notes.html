@@ -29,11 +29,18 @@
             </div>
         </div>
         <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
-            <h2 id="displayTitle">Title</h2>
-            <p><small class="text-uppercase">
-                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
-            </small></p>
-            <pre id="displayNote">Note</pre>
+            {{#if hasPublicNote}}
+                <h2 id="displayTitle">{{noteTitle}}</h2>
+                <p><small class="text-uppercase">
+                    by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
+                </small></p>
+                <pre id="displayNote">{{noteContent}}</pre>
+                {{#if canDelete}}
+                    <button class="btn btn-default delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Note
+                    </button>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
 </template>
@@ -43,17 +50,24 @@
         <div class="col-md-6 notesList">
             <h2>Private Notes</h2>
             <div class="list-group">
-                {{#each publicNotes}}
+                {{#each privateNotes}}
                     <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
                 {{/each}}
             </div>
         </div>
         <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
-            <h2 id="displayTitle">Title</h2>
-            <p><small class="text-uppercase">
-                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
-            </small></p>
-            <pre id="displayNote">Note</pre>
+            {{#if hasPrivateNote}}
+                <h2 id="displayTitle">{{noteTitle}}</h2>
+                <p><small class="text-uppercase">
+                    by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
+                </small></p>
+                <pre id="displayNote">{{noteContent}}</pre>
+                {{#if canDelete}}
+                    <button class="btn btn-default delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Note
+                    </button>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
 </template>
