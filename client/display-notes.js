@@ -113,6 +113,8 @@ Template.publicNotes.events({
     'click button.delete': function(event) {
         event.preventDefault();
         // Remove note from collection
+        Notes.remove(Session.get("currentPublicNote")._id);
+        Session.set("currentPublicNote", null);
     }
 
 });
@@ -129,6 +131,8 @@ Template.privateNotes.events({
     'click button.delete': function(event) {
         event.preventDefault();
         // Remove note from collection
+        Notes.remove(Session.get("currentPrivateNote")._id);
+        Session.set("currentPrivateNote", null);
     }
 
 });
