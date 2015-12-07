@@ -20,7 +20,7 @@
 
 <template name="publicNotes">
     <div class="row displayNotes">
-        <div class="col-md-6 notesList">
+        <div class="col-md-4 notesList">
             <h2>Public Notes</h2>
             <div class="list-group">
                 {{#each publicNotes}}
@@ -28,7 +28,7 @@
                 {{/each}}
             </div>
         </div>
-        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+        <div class="col-md-8 selectedNote"> <!-- Needs to be initially hidden -->
             {{#if hasPublicNote}}
                 <h2 id="displayTitle">{{noteTitle}}</h2>
                 <p><small class="text-uppercase">
@@ -47,7 +47,7 @@
 
 <template name="privateNotes">
     <div class="row displayNotes">
-        <div class="col-md-6 notesList">
+        <div class="col-md-4 notesList">
             <h2>Private Notes</h2>
             <div class="list-group">
                 {{#each privateNotes}}
@@ -55,7 +55,7 @@
                 {{/each}}
             </div>
         </div>
-        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+        <div class="col-md-8 selectedNote"> <!-- Needs to be initially hidden -->
             {{#if hasPrivateNote}}
                 <h2 id="displayTitle">{{noteTitle}}</h2>
                 <p><small class="text-uppercase">

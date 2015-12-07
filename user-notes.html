@@ -66,9 +66,9 @@
 
 <!-- the body block will be built of templates -->
 <body>
-  <div class="container" id="bodyblock">
+<div class="container" id="bodyblock">
     {{> main}} <!-- line containing page content -->
-  </div>
+</div>
 </body>
 
 <!--
@@ -93,11 +93,11 @@
   desc: template for a page
 -->
 <template name="templatetemplate">
-  <h2>title</h2>
+    <h2>title</h2>
 </template>
 
 <template name="internalLinkTest">
-  <h2>internal link test</h2>
+    <h2>internal link test</h2>
 
 
 </template>
@@ -108,12 +108,12 @@
     gives basic navigation and login/account details/functions
 -->
 <template name="main">
-  {{> navigation}} <!-- navigation bar -->
-  <main>
-    <div class="container-fluid">
-      {{> yield}} <!-- line where the content appears -->
-    </div>
-  </main>
+    {{> navigation}} <!-- navigation bar -->
+    <main>
+        <div class="container-fluid">
+            {{> yield}} <!-- line where the content appears -->
+        </div>
+    </main>
 </template>
 
 <!--
@@ -124,104 +124,111 @@
 -->
 <!-- -->
 <template name="home">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>User Notes</h2>
-      <!-- internal linking test-->
-      <a href="#notes1">notes 1</a> <a href="#notes2">notes 2</a><br>
-      <p>
-        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-        A user may create multiple notes with perhaps some limit.
-      </p>
-      <p>The base initial features include:</p>
-      <ul>
-        <li>special markers that a user could jump to while editing/viewing their text</li>
-        <li>double columns for optimal usage of window space</li>
-        <li>resizeable dual view of the same or 2 different documents in one window</li>
-        <li>organizable notes such as in groups/folders/tags</li>
-        <li>private notes available to user who made them</li>
-      </ul>
-      <p>Possible features include:</p>
-      <ul>
-        <li>tabbed files, like excel has multiple sheets</li>
-        <li>simple spreadsheets with basic functions implemented</li>
-        <li>html, js, cs writing and viewing</li>
-      </ul>
-      <p>Site concepts taken from:</p>
-      <ul>
-        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-      </ul>
-      <p>Todo:</p>
-      <ul>
-        <li>document edit page</li>
-        <li>documents page</li>
-        <li>login page</li>
-      </ul>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>User Notes</h2>
+            <p>
+                Welcome to User Notes, a site for storing and sharing text. You can
+                <a href="{{pathFor route="public-notes"}}">browse</a>,
+                <a href="{{pathFor route="create-note"}}">create</a>, and share public notes right away, or you can
+                <a href="{{pathFor route="login"}}">log in</a> or <a href="{{pathFor route="register"}}">register</a>
+                to create private notes.
+            </p>
+            <!-- internal linking test
+            <a href="#notes1">notes 1</a> <a href="#notes2">notes 2</a><br>
+            <p>
+                Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+                A user may create multiple notes with perhaps some limit.
+            </p>
+            <p>The base initial features include:</p>
+            <ul>
+                <li>special markers that a user could jump to while editing/viewing their text</li>
+                <li>double columns for optimal usage of window space</li>
+                <li>resizeable dual view of the same or 2 different documents in one window</li>
+                <li>organizable notes such as in groups/folders/tags</li>
+                <li>private notes available to user who made them</li>
+            </ul>
+            <p>Possible features include:</p>
+            <ul>
+                <li>tabbed files, like excel has multiple sheets</li>
+                <li>simple spreadsheets with basic functions implemented</li>
+                <li>html, js, cs writing and viewing</li>
+            </ul>
+            <p>Site concepts taken from:</p>
+            <ul>
+                <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+            </ul>
+            <p>Todo:</p>
+            <ul>
+                <li>document edit page</li>
+                <li>documents page</li>
+                <li>login page</li>
+            </ul>-->
+        </div>
     </div>
-  </div>
+    <!--
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="notes1">User Notes</h2>
+                <p>
+                    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+                    A user may create multiple notes with perhaps some limit.
+                </p>
+                <p>The base initial features include:</p>
+                <ul>
+                    <li>special markers that a user could jump to while editing/viewing their text</li>
+                    <li>double columns for optimal usage of window space</li>
+                    <li>resizeable dual view of the same or 2 douments in one window</li>
+                </ul>
+                <p>Possible features include:</p>
+                <ul>
+                    <li>tabbed files, like excel has multiple sheets</li>
+                    <li>simple spreadsheets with basic functions implemented</li>
+                    <li>html, js, cs writing and viewing</li>
+                </ul>
+                <p>Site concepts taken from:</p>
+                <ul>
+                    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+                </ul>
+                <p>Todo:</p>
+                <ul>
+                    <li>document edit page</li>
+                    <li>documents page</li>
+                    <li>login page</li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h2 id="notes1">User Notes</h2>
-      <p>
-        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-        A user may create multiple notes with perhaps some limit.
-      </p>
-      <p>The base initial features include:</p>
-      <ul>
-        <li>special markers that a user could jump to while editing/viewing their text</li>
-        <li>double columns for optimal usage of window space</li>
-        <li>resizeable dual view of the same or 2 douments in one window</li>
-      </ul>
-      <p>Possible features include:</p>
-      <ul>
-        <li>tabbed files, like excel has multiple sheets</li>
-        <li>simple spreadsheets with basic functions implemented</li>
-        <li>html, js, cs writing and viewing</li>
-      </ul>
-      <p>Site concepts taken from:</p>
-      <ul>
-        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-      </ul>
-      <p>Todo:</p>
-      <ul>
-        <li>document edit page</li>
-        <li>documents page</li>
-        <li>login page</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <h2 id="notes2">User Notes</h2>
-      <p>
-        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-        A user may create multiple notes with perhaps some limit.
-      </p>
-      <p>The base initial features include:</p>
-      <ul>
-        <li>special markers that a user could jump to while editing/viewing their text</li>
-        <li>double columns for optimal usage of window space</li>
-        <li>resizeable dual view of the same or 2 douments in one window</li>
-      </ul>
-      <p>Possible features include:</p>
-      <ul>
-        <li>tabbed files, like excel has multiple sheets</li>
-        <li>simple spreadsheets with basic functions implemented</li>
-        <li>html, js, cs writing and viewing</li>
-      </ul>
-      <p>Site concepts taken from:</p>
-      <ul>
-        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-      </ul>
-      <p>Todo:</p>
-      <ul>
-        <li>document edit page</li>
-        <li>documents page</li>
-        <li>login page</li>
-      </ul>
-      <a href="#bodyblock">body</a>
-    </div>
-  </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="notes2">User Notes</h2>
+                <p>
+                    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+                    A user may create multiple notes with perhaps some limit.
+                </p>
+                <p>The base initial features include:</p>
+                <ul>
+                    <li>special markers that a user could jump to while editing/viewing their text</li>
+                    <li>double columns for optimal usage of window space</li>
+                    <li>resizeable dual view of the same or 2 douments in one window</li>
+                </ul>
+                <p>Possible features include:</p>
+                <ul>
+                    <li>tabbed files, like excel has multiple sheets</li>
+                    <li>simple spreadsheets with basic functions implemented</li>
+                    <li>html, js, cs writing and viewing</li>
+                </ul>
+                <p>Site concepts taken from:</p>
+                <ul>
+                    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+                </ul>
+                <p>Todo:</p>
+                <ul>
+                    <li>document edit page</li>
+                    <li>documents page</li>
+                    <li>login page</li>
+                </ul>
+                <a href="#bodyblock">body</a>
+            </div>
+        </div> -->
 </template>
