@@ -1,7 +1,9 @@
 Template.publicNotes.helpers({
 
     /** returns public notes */
-    publicNotes: Notes.find({privacy: "public"}),
+    publicNotes: function() {
+        return Notes.find({privacy: "public"});
+    },
 
     /** returns true if the Session has a current public note */
     hasPublicNote: function() {
@@ -48,7 +50,9 @@ Template.publicNotes.helpers({
 Template.privateNotes.helpers({
 
     /** returns private notes of the current user */
-    privateNotes: Notes.find({privacy: "private", owner: Meteor.userId()}),
+    privateNotes: function() {
+        return Notes.find({privacy: "private", owner: Meteor.userId()});
+    },
 
     /** returns true if the Session has a current private note */
     hasPrivateNote: function() {
