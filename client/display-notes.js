@@ -208,7 +208,7 @@ Template.testPage.events({
              */
             //error started when I added this line of code
             //error because html loads internal links at load time?
-            $("#noteMarkers").append('<a href="#'+markerId3+'">'+markerId3+'</a>');
+            $("#noteMarkers").append('<a href="#'+markerId3+'Marker">'+markerId3+'</a>');
 
             // #### element segementation
             //for the marker to be displayed in the note text
