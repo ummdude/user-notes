@@ -36,3 +36,14 @@ Router.route('/login', {
     name: 'login',
     template: 'login'
 });
+
+//routes a general user should not have access to
+Router.route('/testPage', {
+    name: 'testPage',
+    template: 'testPage'
+});
+
+Router.route('/testPage2', {
+    name: 'testPage2',
+    template: 'testPage2'
+});

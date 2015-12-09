@@ -54,6 +54,25 @@
     </div>
 </template>
 
+<!--
+before jquery:
+  <pre id="displayNote">
+    Note1
+    ####mark1####
+    Note2
+  </pre>
+
+after jquery work:
+# with internal links at the top
+  <pre id="displayNote">
+    Note1
+  </pre>
+  <pre id="####mark1####">####mark1####</pre>
+  <pre id="displayNote">
+    Note2
+  </pre>
+-->
+
 <template name="privateNotes">
     <div class="row displayNotes">
         <div class="col-md-4 notesList">

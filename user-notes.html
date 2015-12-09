@@ -8,12 +8,19 @@
 <!-- -->
 <!--
     = goals =
-  note creation
-  note reading
-  user accounts
-  note jump markers (reading)
-  note jump markers (writing)
-  note editing
+  note creation x
+  note reading x
+  user accounts x
+  note jump markers (reading) - in progress
+  note jump markers (writing) - too difficult, using page coordinates?
+  note editing = to be made in display-notes
+  note deletion - in progress
+
+  = issues =
+  note deletion
+  users unique ability to create private notes
+  private notes to update on login and logout
+  yield error, missing layout file
 
     = who did what =
   layout: grant
@@ -35,77 +42,41 @@
   note jump markers (writing)
   note editing
   note deletion
-  note date & author listing
   confirmation a note is created
 
     = general notes =
-  . for the complexity of the project, I'd say we need to have one more point of custom functionality
-      after the the things listed in the to do list.
-  . test and display a large note of multiple lines(100-200)
   . define the possible limit of text of a note
   . concept: recognize "[pg split]" string as location to display text below this string in 2nd column
   . name anchor to be in <a> elements, id anchor in any element
+  .
 
-  ############## id anchor works ###########
-  ##== internal linking concept:
-  === before a note displays on the display-notes page when it is clicked
-  == using jquery, it transforms specific special text to a page element with a unique name in its "id" tag
-    - specific text that is "marked" perhaps like ####marker####, an internal link would link to that
-      text.
-  == initially, place internal links to the markers in a list at the top of the display-notes page
-  ## implementing internal links while writing a note seems to be much more difficult.
   ex:
     <a href="#notes1">notes 1</a> internal link
     <h2 id="notes1">User Notes</h2> position to change view to
 
     = technical notes =
--->
 
-<!-- ## meteor notes ##
-  - need to create a route for every page in the js file and update navigation page.
+    ## meteor notes ##
+  - when creating a new page, update navigation.js and routes.js
   - meteor dislikes '-' characters or dashes in template names, maybe.
--->
 
-<!-- ## encountered problems ##
+    ## encountered problems ##
   - was having errors in the webpage console with having the '-' character in template names.
 -->
 
 <!-- the body block will be built of templates -->
 <body>
-<div class="container" id="bodyblock">
+  <div class="container" id="bodyblock">
     {{> main}} <!-- line containing page content -->
-</div>
+  </div>
 </body>
-
-<!--
-  I use special symbols to denote titles and things
-  basically:
-    [# > = > - > .]
-  # means higher significance
-  . means low significance or list element and so on.
-  = sometimes means a personal comment? well, a comment comment?
-  also:
-    [### > ## > #]
-  more symbol thingies means more significance
-  but I don't use them all the time.
-
-  The concept for markers is for the client to catch the string "#### marker name ####"
-  and have the client? scroll down the page as much as possible (in the case the marker is at the bottom of the note text)
-  to show the location that marker is located.
--->
 
 <!--
   ## template template
   desc: template for a page
 -->
 <template name="templatetemplate">
-    <h2>title</h2>
-</template>
-
-<template name="internalLinkTest">
-    <h2>internal link test</h2>
-
-
+  <h2>template page</h2>
 </template>
 
 <!--
@@ -114,12 +85,12 @@
     gives basic navigation and login/account details/functions
 -->
 <template name="main">
-    {{> navigation}} <!-- navigation bar -->
-    <main>
-        <div class="container-fluid">
-            {{> yield}} <!-- line where the content appears -->
-        </div>
-    </main>
+  {{> navigation}} <!-- navigation bar -->
+  <main>
+    <div class="container-fluid">
+      {{> yield}} <!-- line where the content appears -->
+    </div>
+  </main>
 </template>
 
 <!--
@@ -128,7 +99,6 @@
   currently displays project definition that should be in the about page
   towards the end, may become the "create new note" page
 -->
-<!-- -->
 <template name="home">
     <div class="row">
         <div class="col-md-12">
@@ -140,101 +110,155 @@
                 <a href="{{pathFor route="login"}}">log in</a> or <a href="{{pathFor route="register"}}">register</a>
                 to create private notes.
             </p>
-            <!-- internal linking test
-            <a href="#notes1">notes 1</a> <a href="#notes2">notes 2</a><br>
-            <p>
-                Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-                A user may create multiple notes with perhaps some limit.
-            </p>
-            <p>The base initial features include:</p>
-            <ul>
-                <li>special markers that a user could jump to while editing/viewing their text</li>
-                <li>double columns for optimal usage of window space</li>
-                <li>resizeable dual view of the same or 2 different documents in one window</li>
-                <li>organizable notes such as in groups/folders/tags</li>
-                <li>private notes available to user who made them</li>
-            </ul>
-            <p>Possible features include:</p>
-            <ul>
-                <li>tabbed files, like excel has multiple sheets</li>
-                <li>simple spreadsheets with basic functions implemented</li>
-                <li>html, js, cs writing and viewing</li>
-            </ul>
-            <p>Site concepts taken from:</p>
-            <ul>
-                <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-            </ul>
-            <p>Todo:</p>
-            <ul>
-                <li>document edit page</li>
-                <li>documents page</li>
-                <li>login page</li>
-            </ul>-->
         </div>
     </div>
-    <!--
-        <div class="row">
-            <div class="col-md-12">
-                <h2 id="notes1">User Notes</h2>
-                <p>
-                    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-                    A user may create multiple notes with perhaps some limit.
-                </p>
-                <p>The base initial features include:</p>
-                <ul>
-                    <li>special markers that a user could jump to while editing/viewing their text</li>
-                    <li>double columns for optimal usage of window space</li>
-                    <li>resizeable dual view of the same or 2 douments in one window</li>
-                </ul>
-                <p>Possible features include:</p>
-                <ul>
-                    <li>tabbed files, like excel has multiple sheets</li>
-                    <li>simple spreadsheets with basic functions implemented</li>
-                    <li>html, js, cs writing and viewing</li>
-                </ul>
-                <p>Site concepts taken from:</p>
-                <ul>
-                    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-                </ul>
-                <p>Todo:</p>
-                <ul>
-                    <li>document edit page</li>
-                    <li>documents page</li>
-                    <li>login page</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2 id="notes2">User Notes</h2>
-                <p>
-                    Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
-                    A user may create multiple notes with perhaps some limit.
-                </p>
-                <p>The base initial features include:</p>
-                <ul>
-                    <li>special markers that a user could jump to while editing/viewing their text</li>
-                    <li>double columns for optimal usage of window space</li>
-                    <li>resizeable dual view of the same or 2 douments in one window</li>
-                </ul>
-                <p>Possible features include:</p>
-                <ul>
-                    <li>tabbed files, like excel has multiple sheets</li>
-                    <li>simple spreadsheets with basic functions implemented</li>
-                    <li>html, js, cs writing and viewing</li>
-                </ul>
-                <p>Site concepts taken from:</p>
-                <ul>
-                    <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
-                </ul>
-                <p>Todo:</p>
-                <ul>
-                    <li>document edit page</li>
-                    <li>documents page</li>
-                    <li>login page</li>
-                </ul>
-                <a href="#bodyblock">body</a>
-            </div>
-        </div> -->
 </template>
+
+<!-- page to test page for internal links-->
+<template name="testPage2">
+  <!-- #### internal link creation
+    <a href="#notes1">notes 1</a> internal link
+    <h2 id="notes1">User Notes</h2> position to change view to
+    -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <a href="#markerA">markerA</a> <a href="#markerB">markerB</a>
+      <h2>User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <h2 id="markerA">(A)User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <h2 id="markerB">(B)User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<!-- test page for note parsing and internal links-->
+<template name="testPage">
+  <!-- display notes code-->
+  <div class="row displayNotes">
+    <!-- code for list of notes-->
+    <div class="col-md-6 notesList">
+      <h2>Test Page</h2>
+      <p>test page to test text parsing and internal links</p>
+      <p>markers are to be stated as ####markername###, html code with markers may not display correctly</p>
+      <div class="list-group">
+        {{#each publicNotes}}
+        <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <!-- code for displaying the note-->
+    <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+      <h2 id="displayTitle">Title</h2>
+      <p><small class="text-uppercase">
+        by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
+        <!-- date display a bit lengthy-->
+      </small></p>
+      <!-- location where internal links to appear -->
+      <div id="noteMarkers"></div> <!-- initially blank, fills when markers are found, empties on change-->
+      <!--  <pre id="displayNote">Note</pre> original code for location to display note text-->
+      <!-- the note text displays where Note is: ">Note</ as the text content -->
+
+      <!-- test note section -->
+      <!-- test internal links defined in html-->
+      <a href="#marker1">marker1</a>
+      <a href="#marker2">marker2</a>
+      <a href="#modifyPre">modifyPre</a>
+
+      <div id="modifyDiv"> <!-- div to append marker elements to-->
+        <!-- test note-->
+        <pre id="modifyPre">Note</pre> <!-- new location to display the not text-->
+        <!--
+        Note1
+        ####marker1#### [1]
+        Note2
+        ####marker2#### [3]
+        Note3
+        -->
+      </div> <!-- end div modifyDiv -->
+    </div> <!-- end div selectedNote -->
+  </div> <!-- end div displayNotes -->
+</template>
+
