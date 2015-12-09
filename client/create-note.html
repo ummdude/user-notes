@@ -4,42 +4,35 @@
     looked at creating and editing a page at wikipedia
     at creating and editing a note at pastebin
 -->
-<!-- -->
-
-<!-- attributes of a note element
-  title, text, creator, date, private/public
--->
 <template name="createNote">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Create Note</h2>
-      <!-- text box in own template?-->
-      <!-- no custom formatting other than customization of project -->
-      <!-- basic textbox like pastebin-->
-      <!-- "marker" feature to work on text in textbox-->
-      <form class="new-note">
-        <!-- Title input -->
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" name="notetitle" class="form-control input-lg" placeholder="Enter note title." />
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Create Note</h2>
+            <!-- text box in own template?-->
+            <!-- no custom formatting other than customization of project -->
+            <!-- basic textbox like pastebin-->
+            <!-- "marker" feature to work on text in textbox-->
+            <form class="new-note">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="notetitle" class="form-control input-lg" placeholder="Enter note title." />
+                </div>
+                <div class="form-group">
+                    <label>Text</label>
+                    <textarea name="notetext" class="form-control" placeholder="Enter note text." rows="40"></textarea>
+                </div>
+                {{#if currentUser}}
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="privacy" value="public" checked>Public Note
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="privacy" value="private">Private Note
+                        </label>
+                    </div>
+                {{/if}}
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
-        <!-- Text input -->
-        <div class="form-group">
-          <label>Text</label>
-          <textarea name="notetext" class="form-control" placeholder="Enter note text." rows="30"></textarea>
-        </div>
-        <!-- public/private checkbox-->
-        <div>
-          <label class="radio-inline">
-            <input type="radio" name="privacy" value="public" checked>Public Note
-          </label>
-          <label class="radio-inline">
-            <input type="radio" name="privacy" value="private">Private Note
-          </label>
-        </div>
-        <!-- submit button-->
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
     </div>
-  </div>
 </template>

@@ -14,6 +14,10 @@ Template.navigation.events({
     'click .logout': function (event) {
         event.preventDefault();
         Meteor.logout();
+        Session.set({
+            currentPublicNote: null,
+            currentPrivateNote: null
+        });
         Router.go('home');
     }
 

@@ -1,7 +1,3 @@
-Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_AND_EMAIL'
-});
-
 Template.register.events({
 
     'submit form': function (event) {
@@ -16,6 +12,12 @@ Template.register.events({
             username: name,
             email: email,
             password: password
+        }, function(error) {
+            if (error) {
+                $("p.error").text(error.reason);
+            } else {
+                Router.go('home');
+            }
         });
 
         Router.go('home');
@@ -33,9 +35,13 @@ Template.login.events({
         var user = event.target.user.value;
         var password = event.target.password.value;
 
-        Meteor.loginWithPassword(user, password);
-
-        Router.go('home');
+        Meteor.loginWithPassword(user, password, function(error) {
+            if (error) {
+                $("p.error").text(error.reason);
+            } else {
+                Router.go('home');
+            }
+        });
 
     }
 

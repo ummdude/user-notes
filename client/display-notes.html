@@ -29,7 +29,7 @@
   -->
 <template name="publicNotes">
     <div class="row displayNotes">
-        <div class="col-md-6 notesList">
+        <div class="col-md-4 notesList">
             <h2>Public Notes</h2>
             <div class="list-group">
                 {{#each publicNotes}}
@@ -37,32 +37,46 @@
                 {{/each}}
             </div>
         </div>
-        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
-            <h2 id="displayTitle">Title</h2>
-            <p><small class="text-uppercase">
-                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
-            </small></p>
-            <pre id="displayNote">Note</pre>
+        <div class="col-md-8 selectedNote"> <!-- Needs to be initially hidden -->
+            {{#if hasPublicNote}}
+                <h2 id="displayTitle">{{noteTitle}}</h2>
+                <p><small class="text-uppercase">
+                    by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
+                </small></p>
+                <pre id="displayNote">{{noteContent}}</pre>
+                {{#if canDelete}}
+                    <button class="btn btn-default delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Note
+                    </button>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
 </template>
 
 <template name="privateNotes">
     <div class="row displayNotes">
-        <div class="col-md-6 notesList">
+        <div class="col-md-4 notesList">
             <h2>Private Notes</h2>
             <div class="list-group">
-                {{#each publicNotes}}
+                {{#each privateNotes}}
                     <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
                 {{/each}}
             </div>
         </div>
-        <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
-            <h2 id="displayTitle">Title</h2>
-            <p><small class="text-uppercase">
-                by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
-            </small></p>
-            <pre id="displayNote">Note</pre>
+        <div class="col-md-8 selectedNote"> <!-- Needs to be initially hidden -->
+            {{#if hasPrivateNote}}
+                <h2 id="displayTitle">{{noteTitle}}</h2>
+                <p><small class="text-uppercase">
+                    by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
+                </small></p>
+                <pre id="displayNote">{{noteContent}}</pre>
+                {{#if canDelete}}
+                    <button class="btn btn-default delete">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Note
+                    </button>
+                {{/if}}
+            {{/if}}
         </div>
     </div>
 </template>
