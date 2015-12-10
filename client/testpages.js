@@ -82,7 +82,8 @@ Template.testPage.events({
             var re = new RegExp(' ', 'g');
             markerId = markerId.replace(re, '');
           } else if ($('#'+markerId).length == 0) { //only if the element does not exist
-            $("#noteMarkers").append('<a href="#'+markerId+'Marker">'+markerName+'</a>');
+            // reading that &nbsp; should not be used but it's too easier to use.
+            $("#noteMarkers").append('<a href="#'+markerId+'Marker">'+markerName+'</a>&nbsp;');
             $("#textDiv").append('<a href="#displayTitle">^Back to Note Title</a>');
             value = "=== "+markerName+" ==="+value;
             $("#textDiv").append('<pre id="'+markerId+'Marker">'+value+'</pre>');
