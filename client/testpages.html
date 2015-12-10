@@ -1,6 +1,96 @@
 
 <!-- -->
 
+<!--
+markers names can't have spaces
+marker names can't be strings that can be identified as code
+-->
+
+<!-- newer display code: test page for note parsing and internal links-->
+<template name="testPage">
+  <div class="row displayNotes">
+    <div class="col-md-4 notesList">
+      <h2>Test Page</h2>
+      <p>test page to test text parsing and internal links</p>
+      <p>markers are to be stated as ####markername###, html, jquery, javascript, and meteor code may not work</p>
+      <p>***A note needs to be double clicked to display correctly...</p>
+      <div class="list-group">
+        {{#each publicNotes}}
+        <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-md-8 selectedNote"> <!-- Needs to be initially hidden -->
+      {{#if hasPublicNote}}
+        <h2 id="displayTitle">{{noteTitle}}</h2>
+        <p><small class="text-uppercase">
+          by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
+        </small></p>
+
+        <!-- <pre id="displayNote">{{noteContent}}</pre> -->
+        <!-- adding marker function -->
+        <div id="noteMarkers"></div>
+
+        <div id="textDiv"> <!-- div to append marker elements to-->
+          <!-- test note-->
+          <pre id="textElement2">Note</pre>
+           <!-- new location to display the note text-->
+        </div>
+        <p>Unmodified text:</p>
+        <pre id="textElement">{{noteContent}}</pre>
+        {{#if canDelete}}
+          <button class="btn btn-default delete">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Note
+          </button>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<!-- older display code: test page for note parsing and internal links-->
+<template name="testPageA">
+  <!-- display notes code-->
+  <div class="row displayNotes">
+    <!-- code for list of notes-->
+    <div class="col-md-6 notesList">
+      <h2>Test Page</h2>
+      <p>test page to test text parsing and internal links</p>
+      <p>markers are to be stated as ####markername###, html code with markers may not display correctly</p>
+      <div class="list-group">
+        {{#each publicNotes}}
+        <a id="noteItem" name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <!-- code for displaying the note-->
+    <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+      <h2 id="displayTitle">Title</h2>
+      <p><small class="text-uppercase">
+        by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
+        <!-- date display a bit lengthy-->
+      </small></p>
+      <!-- location where internal links to appear -->
+      <div id="noteMarkers"></div> <!-- initially blank, fills when markers are found, empties on change-->
+      <!--  <pre id="displayNote">Note</pre> original code for location to display note text-->
+      <!-- the note text displays where Note is: ">Note</ as the text content -->
+
+      <!-- test note section -->
+      <!-- test internal links defined in html-->
+      <!-- remove when done testing-->
+      <a href="#marker1">marker1</a>
+      <a href="#marker2">marker2</a>
+      <a href="#modifyPre">modifyPre</a>
+
+      <div id="modifyDiv"> <!-- div to append marker elements to-->
+        <!-- test note-->
+        <pre id="modifyPre">Note</pre> <!-- new location to display the note text-->
+      </div> <!-- end div modifyDiv -->
+    </div> <!-- end div selectedNote -->
+  </div> <!-- end div displayNotes -->
+</template>
+<!-- -->
+
 <!-- page to test internal links-->
 <template name="testPage2">
   <!-- #### internal link creation
@@ -105,53 +195,3 @@
     </div>
   </div>
 </template>
-
-<!-- test page for note parsing and internal links-->
-<template name="testPage">
-  <!-- display notes code-->
-  <div class="row displayNotes">
-    <!-- code for list of notes-->
-    <div class="col-md-6 notesList">
-      <h2>Test Page</h2>
-      <p>test page to test text parsing and internal links</p>
-      <p>markers are to be stated as ####markername###, html code with markers may not display correctly</p>
-      <div class="list-group">
-        {{#each publicNotes}}
-        <a id="noteItem" name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
-        {{/each}}
-      </div>
-    </div>
-    <!-- code for displaying the note-->
-    <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
-      <h2 id="displayTitle">Title</h2>
-      <p><small class="text-uppercase">
-        by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
-        <!-- date display a bit lengthy-->
-      </small></p>
-      <!-- location where internal links to appear -->
-      <div id="noteMarkers"></div> <!-- initially blank, fills when markers are found, empties on change-->
-      <!--  <pre id="displayNote">Note</pre> original code for location to display note text-->
-      <!-- the note text displays where Note is: ">Note</ as the text content -->
-
-      <!-- test note section -->
-      <!-- test internal links defined in html-->
-      <!-- remove when done testing-->
-      <a href="#marker1">marker1</a>
-      <a href="#marker2">marker2</a>
-      <a href="#modifyPre">modifyPre</a>
-
-      <div id="modifyDiv"> <!-- div to append marker elements to-->
-        <!-- test note-->
-        <pre id="modifyPre">Note</pre> <!-- new location to display the note text-->
-        <!--
-        Note1
-        ####marker1#### [1]
-        Note2
-        ####marker2#### [3]
-        Note3
-        -->
-      </div> <!-- end div modifyDiv -->
-    </div> <!-- end div selectedNote -->
-  </div> <!-- end div displayNotes -->
-</template>
-<!-- -->
