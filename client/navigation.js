@@ -5,8 +5,8 @@ Template.navigation.helpers({
         { route: "public-notes", label: "Public Notes"},
         { route: "private-notes", label: "Private Notes"},
         { route: "about", label: "About"},
-        { route: "testPage", label: "Test Page"},
-        { route: "testPage2", label: "Test Page 2"}
+        { route: "testPage", label: "Marker View"} //,
+        //{ route: "testPage2", label: "Test Page 2"}
     ]
 
 });

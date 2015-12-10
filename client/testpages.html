@@ -10,10 +10,10 @@ marker names can't be strings that can be identified as code
 <template name="testPage">
   <div class="row displayNotes">
     <div class="col-md-4 notesList">
-      <h2>Test Page</h2>
+      <h2>Marker View</h2>
       <p>test page to test text parsing and internal links</p>
       <p>markers are to be stated as ####markername###, html, jquery, javascript, and meteor code may not work</p>
-      <p>***A note needs to be double clicked to display correctly...</p>
+      <!-- <p>***A note needs to be double clicked to display correctly...</p> -->
       <div class="list-group">
         {{#each publicNotes}}
         <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
@@ -27,7 +27,6 @@ marker names can't be strings that can be identified as code
           by <span id="displayOwner">{{noteOwner}}</span> at <span id="displayDate">{{noteDate}}</span>
         </small></p>
 
-        <!-- <pre id="displayNote">{{noteContent}}</pre> -->
         <!-- adding marker function -->
         <div id="noteMarkers"></div>
 
