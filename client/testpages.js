@@ -1,5 +1,9 @@
 
+/*
+ */
+
 Template.testPage2.events({
+  // creates new marker at click of the button
   'click .createMarkerElement': function() {
     console.log("entered function to create element");
     if ($("#newMarker").length == 0) {
@@ -7,7 +11,7 @@ Template.testPage2.events({
       console.log("created newMarker");
     }
   },
-
+  // creates new marker and internal link at click of the button
   'click .createMarkerAndLink': function() {
     console.log("entered function2 to create element");
 
@@ -20,7 +24,6 @@ Template.testPage2.events({
   }
 });
 
-// /* start test js
 Template.testPage.helpers({
     // this function returns the public notes in the Notes collection.
     publicNotes: Notes.find({privacy: "public"})
@@ -28,7 +31,8 @@ Template.testPage.helpers({
 
 Template.testPage.events({
     // this function displays the note that is clicked on on the same page.
-    'click a': function(event) {
+    'click #noteItem': function(event) {
+    console.log("entered function to display note");
 
         event.preventDefault();
 
@@ -53,8 +57,9 @@ Template.testPage.events({
         $("#modifyPre").text(searchResult.text);
         //after note is displayed
 
-        //## start of internal links to markers code:
-        //finds marked text and splits note at each marked text
+        //## start of creation internal links and markers code:
+        // finds marked text and splits note at each marked text
+        // creates internal links to each marker
 
         /*
           ### internal link notes
@@ -64,10 +69,6 @@ Template.testPage.events({
           == Uncaught TypeError: Cannot read property 'owner' of undefined
           - error created when clicking an internal link
           == displaying html code with quotes incorrectly displays the note.
-
-          ## internal link example:
-          var note1 = $("#modifyPre").text(); //searchResult.text;
-          $("#noteMarkers").append(<a href="#notes1">notes 1</a>);
 
          */
 
@@ -97,7 +98,7 @@ Template.testPage.events({
             //error because html loads internal links at load time?
             $("#noteMarkers").append('<a href="#'+markerId3+'Marker">'+markerId3+'</a>');
 
-            // #### element segementation
+            // #### text element segmentation
             //for the marker to be displayed in the note text
             value = "=== "+markerId3+" ==="+value;
             $("#modifyDiv").append('<pre id="'+markerId3+'Marker">'+value+'</pre>');
@@ -107,7 +108,7 @@ Template.testPage.events({
         ); // end for each note "section" in pre modifyPre
         //remove element containing original text
         $("#modifyPre").remove();
-        console.log("executed to end"); // to test html notes if they reach this line
+        console.log("function display note executed to end"); // to test html notes if they reach this line
 
         /*
           #### section notes:
@@ -120,6 +121,5 @@ Template.testPage.events({
          */
     } // end function click a
 }); // end testPage.events
-
 /*
  */

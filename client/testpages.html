@@ -1,4 +1,7 @@
-<!-- page to test page for internal links-->
+
+<!-- -->
+
+<!-- page to test internal links-->
 <template name="testPage2">
   <!-- #### internal link creation
     <a href="#notes1">notes 1</a> internal link
@@ -114,7 +117,7 @@
       <p>markers are to be stated as ####markername###, html code with markers may not display correctly</p>
       <div class="list-group">
         {{#each publicNotes}}
-        <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+        <a id="noteItem" name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
         {{/each}}
       </div>
     </div>
@@ -132,13 +135,14 @@
 
       <!-- test note section -->
       <!-- test internal links defined in html-->
+      <!-- remove when done testing-->
       <a href="#marker1">marker1</a>
       <a href="#marker2">marker2</a>
       <a href="#modifyPre">modifyPre</a>
 
       <div id="modifyDiv"> <!-- div to append marker elements to-->
         <!-- test note-->
-        <pre id="modifyPre">Note</pre> <!-- new location to display the not text-->
+        <pre id="modifyPre">Note</pre> <!-- new location to display the note text-->
         <!--
         Note1
         ####marker1#### [1]
@@ -150,3 +154,4 @@
     </div> <!-- end div selectedNote -->
   </div> <!-- end div displayNotes -->
 </template>
+<!-- -->
