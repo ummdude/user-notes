@@ -24,7 +24,18 @@ Template.createNote.events({
         // Clear form
         event.target.notetitle.value = "";
         event.target.notetext.value = "";
-        event.target.privacy.value = "public";
+        if (Meteor.user() != null) {
+            event.target.privacy.value = "public";
+        }
+
+        console.log(noteprivacy);
+
+        // Go to appropriate notes display page
+        if (noteprivacy == "private") {
+            Router.go('private-notes');
+        } else {
+            Router.go('public-notes');
+        }
 
     }
 
