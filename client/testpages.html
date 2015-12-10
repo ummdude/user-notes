@@ -1,0 +1,152 @@
+<!-- page to test page for internal links-->
+<template name="testPage2">
+  <!-- #### internal link creation
+    <a href="#notes1">notes 1</a> internal link
+    <h2 id="notes1">User Notes</h2> position to change view to
+    -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <div id="intLinksDiv">
+        <a href="#markerA">markerA</a> <a href="#markerB">markerB</a> <a href="#newMarker">newMarker</a>
+      </div>
+      <button class="createMarkerElement">Create marker</button>
+      <button class="createMarkerAndLink">Create marker and link to marker</button>
+      <h2>User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+      <div id="elementDiv"></div>
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <h2 id="markerA">(A)User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+      <h2>Test Page 2</h2>
+      <p>test page to test internal links</p>
+      <h2 id="markerB">(B)User Notes</h2>
+      <p>
+        Initial simple idea is to create a web page for a user to read and write basic simple notes quickly.
+        A user may create multiple notes with perhaps some limit.
+      </p>
+      <p>The base initial features include:</p>
+      <ul>
+        <li>special markers that a user could jump to while editing/viewing their text</li>
+        <li>double columns for optimal usage of window space</li>
+        <li>resizeable dual view of the same or 2 different documents in one window</li>
+        <li>organizable notes such as in groups/folders/tags</li>
+        <li>private notes available to user who made them</li>
+      </ul>
+      <p>Possible features include:</p>
+      <ul>
+        <li>tabbed files, like excel has multiple sheets</li>
+        <li>simple spreadsheets with basic functions implemented</li>
+        <li>html, js, cs writing and viewing</li>
+      </ul>
+      <p>Site concepts taken from:</p>
+      <ul>
+        <li>Google Docs, paste bin, wikipedia, spreadsheet software, text document software</li>
+      </ul>
+      <p>Todo:</p>
+      <ul>
+        <li>no items</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<!-- test page for note parsing and internal links-->
+<template name="testPage">
+  <!-- display notes code-->
+  <div class="row displayNotes">
+    <!-- code for list of notes-->
+    <div class="col-md-6 notesList">
+      <h2>Test Page</h2>
+      <p>test page to test text parsing and internal links</p>
+      <p>markers are to be stated as ####markername###, html code with markers may not display correctly</p>
+      <div class="list-group">
+        {{#each publicNotes}}
+        <a name="{{_id}}" href="#" class="list-group-item">{{title}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <!-- code for displaying the note-->
+    <div class="col-md-6 selectedNote"> <!-- Needs to be initially hidden -->
+      <h2 id="displayTitle">Title</h2>
+      <p><small class="text-uppercase">
+        by <span id="displayOwner">Author</span> at <span id="displayDate">Date</span>
+        <!-- date display a bit lengthy-->
+      </small></p>
+      <!-- location where internal links to appear -->
+      <div id="noteMarkers"></div> <!-- initially blank, fills when markers are found, empties on change-->
+      <!--  <pre id="displayNote">Note</pre> original code for location to display note text-->
+      <!-- the note text displays where Note is: ">Note</ as the text content -->
+
+      <!-- test note section -->
+      <!-- test internal links defined in html-->
+      <a href="#marker1">marker1</a>
+      <a href="#marker2">marker2</a>
+      <a href="#modifyPre">modifyPre</a>
+
+      <div id="modifyDiv"> <!-- div to append marker elements to-->
+        <!-- test note-->
+        <pre id="modifyPre">Note</pre> <!-- new location to display the not text-->
+        <!--
+        Note1
+        ####marker1#### [1]
+        Note2
+        ####marker2#### [3]
+        Note3
+        -->
+      </div> <!-- end div modifyDiv -->
+    </div> <!-- end div selectedNote -->
+  </div> <!-- end div displayNotes -->
+</template>
